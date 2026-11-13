@@ -85,16 +85,22 @@ public class UserInterface {
 
     public void processGetByMakeModelRequest(){
         System.out.print("Enter Vehicle Make: ");
-        String make = input.nextLine();
+        String make = input.nextLine().trim();
         //input.nextLine();
         System.out.print("Enter Vehicle Model: ");
-        String model = input.nextLine();
+        String model = input.nextLine().trim();
         input.nextLine();
         displayVehicles(dealership.getVehiclesByMakeModel(make, model));
     }
 
     public void processGetByYearRequest(){
-
+        System.out.print("Enter Minimum Year Range: ");
+        int min = input.nextInt();
+        input.nextLine();
+        System.out.print("Enter Maximum Year Range: ");
+        int max = input.nextInt();
+        input.nextLine();
+        displayVehicles(dealership.getVehiclesByYear(min, max));
     }
 
     public void processGetByColorRequest(){
