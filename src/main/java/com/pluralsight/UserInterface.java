@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class UserInterface {
     public static Scanner input = new Scanner(System.in);
-
+    //private DealershipFileManager fileManager;
     private Dealership dealership;
 
     public UserInterface() {
@@ -121,7 +121,10 @@ public class UserInterface {
     }
 
     public void processGetByVehicleTypeRequest(){
-
+        System.out.print("Enter Vehicle Type: ");
+        String type = input.nextLine().trim();
+        input.nextLine();
+        displayVehicles(dealership.getVehiclesByColor(type));
     }
 
     public void processGetByAllVehiclesRequest(){
