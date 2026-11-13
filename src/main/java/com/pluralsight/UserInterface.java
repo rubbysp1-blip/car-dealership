@@ -35,7 +35,7 @@ public class UserInterface {
         init();
         System.out.println("Welcome to " + dealership.getName() + "\n");
         while (true){
-            System.out.println("""
+            System.out.print("""
                     Select a Number From The Following Options
                     ------------------------------------------
                     1 - Find vehicles within a price range
@@ -74,17 +74,23 @@ public class UserInterface {
     }
 
     public void processGetByPriceRequest(){
-        System.out.println("Enter Minimum Price Range: ");
+        System.out.print("Enter Minimum Price Range: ");
         BigDecimal min = input.nextBigDecimal();
         input.nextLine();
-        System.out.println("Enter Maximum Price Range: ");
+        System.out.print("Enter Maximum Price Range: ");
         BigDecimal max = input.nextBigDecimal();
         input.nextLine();
         displayVehicles(dealership.getVehiclesByPrice(min, max));
     }
 
     public void processGetByMakeModelRequest(){
-
+        System.out.print("Enter Vehicle Make: ");
+        String make = input.nextLine();
+        //input.nextLine();
+        System.out.print("Enter Vehicle Model: ");
+        String model = input.nextLine();
+        input.nextLine();
+        displayVehicles(dealership.getVehiclesByMakeModel(make, model));
     }
 
     public void processGetByYearRequest(){

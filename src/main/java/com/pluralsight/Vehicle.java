@@ -92,7 +92,7 @@ public class Vehicle {
         return "\n" + year + " " + make + " " + model + "\n" +
                 "VIN: " + vin + "\n" +
                 vehicleType + " | " + color + " | " + odometer + " miles\n" +
-                "$" + String.format("%.2f", price) + "\n";
+                "Price: $" + String.format("%.2f", price) + "\n";
 
     }
 }
