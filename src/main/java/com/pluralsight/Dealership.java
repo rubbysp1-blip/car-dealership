@@ -14,7 +14,11 @@ public class Dealership {
         this.name = name;
         this.phone = phone;
         this.address = address;
-        inventory = new ArrayList<>();
+        this.inventory = new ArrayList<Vehicle>();
+    }
+
+    public Dealership() {
+        this.inventory = new ArrayList<Vehicle>();
     }
 
     public String getName() {
@@ -66,11 +70,15 @@ public class Dealership {
         return null;
     }
 
-    public void addVehicle(Vehicle vehicle){
+    public List<Vehicle> getAllVehicles(){
+        return null;
+    }
 
+    public void addVehicle(Vehicle vehicle){
+        this.inventory.add(vehicle);
     }
 
     public void removeVehicle(Vehicle vehicle){
-
+        this.inventory.remove(vehicle);
     }
 }
