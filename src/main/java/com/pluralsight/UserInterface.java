@@ -1,9 +1,12 @@
 package com.pluralsight;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Scanner;
 
 public class UserInterface {
+    public static Scanner input = new Scanner(System.in);
+
     private Dealership dealership;
 
     public UserInterface() {
@@ -28,7 +31,7 @@ public class UserInterface {
     }
 
     public void display(){
-        Scanner input = new Scanner(System.in);
+
         init();
         System.out.println("Welcome to " + dealership.getName() + "\n");
         while (true){
@@ -71,7 +74,13 @@ public class UserInterface {
     }
 
     public void processGetByPriceRequest(){
-
+        System.out.println("Enter Minimum Price Range: ");
+        BigDecimal min = input.nextBigDecimal();
+        input.nextLine();
+        System.out.println("Enter Maximum Price Range: ");
+        BigDecimal max = input.nextBigDecimal();
+        input.nextLine();
+        displayVehicles(dealership.getVehiclesByPrice(min, max));
     }
 
     public void processGetByMakeModelRequest(){
@@ -99,7 +108,7 @@ public class UserInterface {
     }
 
     public void processAddVehicleRequest(){
-
+        //use dealershipfilemanager
     }
 
     public void processRemoveVehicleRequest(){

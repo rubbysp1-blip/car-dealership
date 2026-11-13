@@ -46,8 +46,16 @@ public class Dealership {
     }
 
     public List<Vehicle> getVehiclesByPrice(BigDecimal min, BigDecimal max){
-
-        return null;
+        ArrayList<Vehicle> vehicleList = new ArrayList<>();
+        for (Vehicle vehicle : inventory){
+//            if(vehicle.getPrice().compareTo(min) > 0 && vehicle.getPrice().compareTo(max) < 0){
+//
+//            }
+            if((min == null || vehicle.getPrice().compareTo(min) >= 0) && (max == null || vehicle.getPrice().compareTo(max) <= 0)){
+                vehicleList.add(vehicle);
+            }
+        }
+        return vehicleList;
     }
 
     public List<Vehicle> getVehiclesByMakeModel(String make, String model){
@@ -70,8 +78,8 @@ public class Dealership {
         return null;
     }
 
-    public List<Vehicle> getAllVehicles(){
-        return null;
+    public ArrayList<Vehicle> getAllVehicles(){
+        return inventory;
     }
 
     public void addVehicle(Vehicle vehicle){
