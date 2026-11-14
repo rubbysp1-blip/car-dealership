@@ -1,15 +1,19 @@
 package com.pluralsight;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Scanner;
 
 public class UserInterface {
     public static Scanner input = new Scanner(System.in);
-    //private DealershipFileManager fileManager;
+    private DealershipFileManager fileManager;
     private Dealership dealership;
 
     public UserInterface() {
+        fileManager = new DealershipFileManager();
     }
 
     private void displayVehicles(List<Vehicle> vehicleList){
@@ -24,7 +28,7 @@ public class UserInterface {
     }
 
     private void init(){
-        DealershipFileManager fileManager = new DealershipFileManager();
+        fileManager = new DealershipFileManager();
 
         this.dealership = fileManager.getDealership();
 
@@ -124,7 +128,7 @@ public class UserInterface {
         System.out.print("Enter Vehicle Type: ");
         String type = input.nextLine().trim();
         input.nextLine();
-        displayVehicles(dealership.getVehiclesByColor(type));
+        displayVehicles(dealership.getVehiclesByType(type));
     }
 
     public void processGetByAllVehiclesRequest(){
@@ -132,7 +136,33 @@ public class UserInterface {
     }
 
     public void processAddVehicleRequest(){
-        //use dealershipfilemanager
+        System.out.print("Vin: ");
+        int vin = input.nextInt();
+        input.nextLine();
+        System.out.print("Price: ");
+        BigDecimal price = input.nextBigDecimal();
+        input.nextLine();
+        System.out.print("Odometer: ");
+        int odometer = input.nextInt();
+        input.nextLine();
+        System.out.print("Color: ");
+        String color = input.nextLine().trim();
+        input.nextLine();
+        System.out.print("Type: ");
+        String type = input.nextLine().trim();
+        //input.nextLine();
+        System.out.print("Model: ");
+        String model = input.nextLine().trim();
+        System.out.print("Make: ");
+        String make = input.nextLine().trim();
+        input.nextLine();
+        System.out.print("Year: ");
+        int year = input.nextInt();
+
+
+        dealership.addVehicle(new Vehicle(price, odometer, color, type, model, make, year, vin));
+        fileManager.saveDealership(dealership);
+        //price, odometer, color, type, model, make, year, vin
     }
 
     public void processRemoveVehicleRequest(){

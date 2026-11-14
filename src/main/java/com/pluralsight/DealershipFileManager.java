@@ -1,8 +1,6 @@
 package com.pluralsight;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.math.BigDecimal;
 import java.util.regex.Pattern;
 
@@ -37,6 +35,7 @@ public class DealershipFileManager {
                     dealership.addVehicle(new Vehicle(price, odometer, color, type, model, make, year, vin));
                 }
             }
+            bufferedReader.close();
             return dealership;
         } catch (IOException e) {
             System.out.println("File Error!");
@@ -45,6 +44,17 @@ public class DealershipFileManager {
     }
 
     public void saveDealership(Dealership dealership){
+        try {
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("inventory.csv"));
+            for(Vehicle vehicle : dealership.getAllVehicles()){
 
+                bufferedWriter.write(vehicle.toCSV());
+
+                bufferedWriter.newLine();
+
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

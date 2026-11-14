@@ -95,4 +95,16 @@ public class Vehicle {
                 "Price: $" + String.format("%.2f", price) + "\n";
 
     }
+
+    public String toCSV() {
+        return vin + "|" +
+                year + "|" +
+                make + "|" +
+                model + "|" +
+                vehicleType + "|" +
+                color + "|" +
+                odometer + "|" +
+                String.format("%.2f", price);
+
+    }
 }
