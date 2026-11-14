@@ -107,4 +107,5 @@ public class Vehicle {
                 String.format("%.2f", price);
 
     }
+
 }

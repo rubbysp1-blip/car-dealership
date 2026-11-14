@@ -119,4 +119,9 @@ public class Dealership {
     public void removeVehicle(Vehicle vehicle){
         this.inventory.remove(vehicle);
     }
+
+    @Override
+    public String toString() {
+        return name + "|" + address + "|" + phone;
+    }
 }
