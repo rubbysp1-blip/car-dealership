@@ -53,6 +53,7 @@ public class DealershipFileManager {
                 bufferedWriter.newLine();
 
             }
+            bufferedWriter.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
