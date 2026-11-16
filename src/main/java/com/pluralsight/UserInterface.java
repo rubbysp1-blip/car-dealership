@@ -1,8 +1,5 @@
 package com.pluralsight;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Scanner;
@@ -169,25 +166,7 @@ public class UserInterface {
         System.out.print("Vin: ");
         int vin = input.nextInt();
         input.nextLine();
-//        System.out.print("Price: ");
-//        BigDecimal price = input.nextBigDecimal();
-//        input.nextLine();
-//        System.out.print("Odometer: ");
-//        int odometer = input.nextInt();
-//        input.nextLine();
-//        System.out.print("Color: ");
-//        String color = input.nextLine().trim();
-//        input.nextLine();
-//        System.out.print("Type: ");
-//        String type = input.nextLine().trim();
-//        //input.nextLine();
-//        System.out.print("Model: ");
-//        String model = input.nextLine().trim();
-//        System.out.print("Make: ");
-//        String make = input.nextLine().trim();
-//        input.nextLine();
-//        System.out.print("Year: ");
-//        int year = input.nextInt();
+
         Vehicle vehicleVin = null;
         for(Vehicle vehicle : dealership.getAllVehicles()){
             if(vehicle.getVin() == vin){
@@ -196,5 +175,9 @@ public class UserInterface {
         }
         dealership.removeVehicle(vehicleVin);
         fileManager.saveDealership(dealership);
+    }
+
+    public void closeScanner(){
+        input.close();
     }
 }
