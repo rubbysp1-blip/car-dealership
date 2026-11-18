@@ -90,7 +90,7 @@ public class UserInterface {
         //input.nextLine();
         System.out.print("Enter Vehicle Model: ");
         String model = input.nextLine().trim();
-        input.nextLine();
+
         displayVehicles(dealership.getVehiclesByMakeModel(make, model));
     }
 
@@ -107,7 +107,7 @@ public class UserInterface {
     public void processGetByColorRequest(){
         System.out.print("Enter Vehicle Color: ");
         String color = input.nextLine().trim();
-        input.nextLine();
+
         displayVehicles(dealership.getVehiclesByColor(color));
     }
 
@@ -124,7 +124,6 @@ public class UserInterface {
     public void processGetByVehicleTypeRequest(){
         System.out.print("Enter Vehicle Type: ");
         String type = input.nextLine().trim();
-        input.nextLine();
         displayVehicles(dealership.getVehiclesByType(type));
     }
 
@@ -144,7 +143,7 @@ public class UserInterface {
         input.nextLine();
         System.out.print("Color: ");
         String color = input.nextLine().trim();
-        input.nextLine();
+
         System.out.print("Type: ");
         String type = input.nextLine().trim();
         //input.nextLine();
@@ -152,7 +151,7 @@ public class UserInterface {
         String model = input.nextLine().trim();
         System.out.print("Make: ");
         String make = input.nextLine().trim();
-        input.nextLine();
+
         System.out.print("Year: ");
         int year = input.nextInt();
 
