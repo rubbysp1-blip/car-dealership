@@ -135,29 +135,27 @@ public class UserInterface {
         System.out.print("Vin: ");
         int vin = input.nextInt();
         input.nextLine();
-        System.out.print("Price: ");
-        BigDecimal price = input.nextBigDecimal();
+        System.out.print("Year: ");
+        int year = input.nextInt();
         input.nextLine();
+        System.out.print("Make: ");
+        String make = input.nextLine().trim();
+        System.out.print("Model: ");
+        String model = input.nextLine().trim();
+        System.out.print("Type: ");
+        String type = input.nextLine().trim();
+        System.out.print("Color: ");
+        String color = input.nextLine().trim();
         System.out.print("Odometer: ");
         int odometer = input.nextInt();
         input.nextLine();
-        System.out.print("Color: ");
-        String color = input.nextLine().trim();
-
-        System.out.print("Type: ");
-        String type = input.nextLine().trim();
-        //input.nextLine();
-        System.out.print("Model: ");
-        String model = input.nextLine().trim();
-        System.out.print("Make: ");
-        String make = input.nextLine().trim();
-
-        System.out.print("Year: ");
-        int year = input.nextInt();
-
+        System.out.print("Price: ");
+        BigDecimal price = input.nextBigDecimal();
+        input.nextLine();
 
         dealership.addVehicle(new Vehicle(price, odometer, color, type, model, make, year, vin));
         fileManager.saveDealership(dealership);
+        System.out.printf("Added the %d %s %s", year, make, model);
         //price, odometer, color, type, model, make, year, vin
     }
 
@@ -174,6 +172,7 @@ public class UserInterface {
         }
         dealership.removeVehicle(vehicleVin);
         fileManager.saveDealership(dealership);
+        System.out.printf("Removed VIIN %d ", vin);
     }
 
     public void closeScanner(){
