@@ -36,8 +36,7 @@ public class UserInterface {
         init();
         System.out.println("Welcome to " + dealership.getName() + "\n");
         while (true){
-            System.out.print("""
-                    
+            System.out.print("""               
                     Select a Number From The Following Options
                     ------------------------------------------
                     1 - Find vehicles within a price range
@@ -156,7 +155,7 @@ public class UserInterface {
 
         dealership.addVehicle(new Vehicle(price, odometer, color, type, model, make, year, vin));
         fileManager.saveDealership(dealership);
-        System.out.printf("Added the %d %s %s\n", year, make, model);
+        System.out.printf("Added the %d %s %s%n", year, make, model);
         //price, odometer, color, type, model, make, year, vin
     }
 
@@ -173,11 +172,11 @@ public class UserInterface {
         }
 
         if(vehicleVin == null){
-            System.out.printf("No vehicle has the VIN %d\n", vin);
+            System.out.printf("No vehicle has the VIN %d%n", vin);
         }else{
             dealership.removeVehicle(vehicleVin);
             fileManager.saveDealership(dealership);
-            System.out.printf("Removed VIIN %d \n", vin);
+            System.out.printf("Removed VIN %d %n", vin);
         }
 
     }
